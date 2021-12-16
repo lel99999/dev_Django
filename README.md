@@ -1,4 +1,4 @@
-# dev_django
+# dev_Django
 Django RESTful Standalone and Web Service Development
 
 
