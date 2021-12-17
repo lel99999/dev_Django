@@ -11,15 +11,15 @@ Vagrant.configure("2") do |config|
 #   trigger.run = { path:"subscription-manager register --username <username> --password <password> --auto-attach"}
 # end
 
-  config.vm.define "dgangoRH7" do |djangoRH7|
-#   dgangoRH7.vm.box = "generic/rhel7"
-    dgangoRH7.vm.box = "RH7.5_baserepo"
-    #dgangoRH7.vm.box = "javier-lopez/rhel-7.4"
-    #dgangoRH7.vm.box = "xianlin/rhel-7.4"
-    dgangoRH7.vm.hostname = "djangoRH7"
-    dgangoRH7.vm.network "private_network", ip: "192.168.60.143"
-    dgangoRH7.vm.provision "shell", :inline => "sudo echo '192.168.60.143 djangoRH7.local djangoRH7' >> /etc/hosts"
-    dgangoRH7.vm.provision "ansible" do |ansible|
+  config.vm.define "djangoRH7" do |djangoRH7|
+#   djangoRH7.vm.box = "generic/rhel7"
+    djangoRH7.vm.box = "clouddood/RH7.5_baserepo"
+    #jgangoRH7.vm.box = "javier-lopez/rhel-7.4"
+    #djangoRH7.vm.box = "xianlin/rhel-7.4"
+    djangoRH7.vm.hostname = "djangoRH7"
+    djangoRH7.vm.network "private_network", ip: "192.168.60.143"
+    djangoRH7.vm.provision "shell", :inline => "sudo echo '192.168.60.143 djangoRH7.local djangoRH7' >> /etc/hosts"
+    djangoRH7.vm.provision "ansible" do |ansible|
       ansible.playbook = "deploy_django.yml"
       ansible.inventory_path = "vagrant_hosts"
       #ansible.tags = ansible_tags
